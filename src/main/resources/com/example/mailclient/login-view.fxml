@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mailclient.LoginController">
+   <children>
+      <HBox alignment="CENTER" layoutX="170.0" layoutY="51.0" prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="15.0" prefWidth="152.0" text="接收服务器类型" />
+            <ChoiceBox fx:id="recServerChoiceBox" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="170.0" layoutY="101.0" prefHeight="50.0" prefWidth="268.0">
+         <children>
+            <Label prefHeight="15.0" prefWidth="84.0" text="邮箱账号" />
+            <TextField fx:id="emailAdd" prefHeight="23.0" prefWidth="172.0" promptText="example@qq.com" />
+         </children>
+      </HBox>
+      <HBox layoutX="170.0" layoutY="140.0" prefHeight="50.0" prefWidth="254.0">
+         <children>
+            <Label prefHeight="15.0" prefWidth="84.0" text="密码" />
+            <PasswordField fx:id="emailPwd" prefHeight="23.0" prefWidth="171.0" promptText="your email password" />
+         </children>
+      </HBox>
+      <HBox layoutX="70.0" layoutY="201.0" prefHeight="50.0" prefWidth="486.0">
+         <children>
+            <Label text="POP服务器" />
+            <TextField fx:id="pop3Server" promptText="在这里输入POP3服务器" text="pop.qq.com" />
+            <CheckBox fx:id="recSSL" mnemonicParsing="false" selected="true" text="SSL   " />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="端口" />
+                  <TextField fx:id="recPort" text="995" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox layoutX="64.0" layoutY="268.0" prefHeight="50.0" prefWidth="499.0">
+         <children>
+            <Label text="SMTP服务器" />
+            <TextField fx:id="smtpServer" promptText="在这里输入SMTP服务器" text="smtp.qq.com" />
+            <CheckBox fx:id="sendSSL" mnemonicParsing="false" selected="true" text="SSL   " />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="端口" />
+                  <TextField fx:id="sendPort" text="465" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <Button fx:id="loginButton" layoutX="273.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#clickLoginButton" text="登录" />
+   </children>
+</AnchorPane>

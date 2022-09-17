@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mailclient.MainController">
+  <tabs>
+    <Tab text="收信">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <SplitPane cache="true" dividerPositions="0.2" prefHeight="575.0" prefWidth="1000.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ListView fx:id="mailList" layoutX="-1.0" layoutY="-3.0" prefHeight="578.0" prefWidth="206.0" />
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="329.0" prefWidth="417.0">
+                           <children>
+                              <WebView fx:id="webView" layoutX="13.0" layoutY="75.0" prefHeight="478.0" prefWidth="768.0" />
+                              <HBox layoutX="40.0" layoutY="13.0" prefHeight="20.0" prefWidth="309.0">
+                                 <children>
+                                    <Label text="发件人: " />
+                                    <Label fx:id="senderLabel" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="357.0" layoutY="33.0" prefHeight="20.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="大小: " />
+                                    <Label fx:id="sizeLabel" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="40.0" layoutY="33.0" prefHeight="20.0" prefWidth="310.0">
+                                 <children>
+                                    <Label text="收件人: " />
+                                    <Label fx:id="receiverLabel" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="357.0" layoutY="13.0" prefHeight="20.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="时间: " />
+                                    <Label fx:id="timeLabel" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="deleteButton" layoutX="693.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#clickDeleteButton" text="删除当前邮件" />
+                              <Button fx:id="reloadButton" layoutX="693.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#clickReloadButton" text="重新收取邮件" />
+                              <ProgressBar fx:id="processBar" layoutX="197.0" layoutY="56.0" prefWidth="200.0" progress="0.0" />
+                              <Label fx:id="loadMailLabel" layoutX="100.0" layoutY="58.0" text="收取邮件中..." />
+                              <ProgressIndicator fx:id="processIndicator" layoutX="181.0" layoutY="58.0" prefHeight="15.0" prefWidth="16.0" progress="0.0" />
+                              <Label fx:id="downloadLabel" layoutX="405.0" layoutY="58.0" text="下载第1/1封邮件" />
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="发信">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <HTMLEditor fx:id="mailEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="110.0" prefHeight="440.0" prefWidth="984.0" />
+                  <HBox layoutX="29.0" layoutY="47.0" prefHeight="25.0" prefWidth="344.0">
+                     <children>
+                        <Label text="收件人" />
+                        <TextField fx:id="receiverText" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="272.0" layoutY="47.0" prefHeight="25.0" prefWidth="193.0">
+                     <children>
+                        <Label text="抄送" />
+                        <TextField fx:id="CCText" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="273.0" layoutY="78.0" prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label text="密送" />
+                        <TextField fx:id="BCText" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="29.0" layoutY="78.0" prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label text="主题   " />
+                        <TextField fx:id="themeText" />
+                     </children>
+                  </HBox>
+                  <ToolBar layoutY="-6.0" prefHeight="40.0" prefWidth="1000.0">
+                     <items>
+                        <Button fx:id="sendButton" mnemonicParsing="false" onMouseClicked="#clickSendButton" text="发送" />
+                        <Button fx:id="attachmentButton" mnemonicParsing="false" onMouseClicked="#clickAttachmentButton" text="添加附件" />
+                        <Button fx:id="picButton" mnemonicParsing="false" onMouseClicked="#clickPicButton" text="添加图片" />
+                        <Button fx:id="clearFileButton" mnemonicParsing="false" onMouseClicked="#clickClearFileButton" text="清空已选附件" />
+                     </items>
+                  </ToolBar>
+                  <Label fx:id="fileLabel" layoutX="490.0" layoutY="40.0" wrapText="true" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
